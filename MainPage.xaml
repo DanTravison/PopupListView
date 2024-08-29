@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PopupListView"
+             xmlns:popup="clr-namespace:PopupListView.Popup"
+             xmlns:lv="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             x:Class="PopupListView.MainPage">
+    
+    <Grid>
+        <Label Text="Right Click on the page"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="20"/>
+    </Grid>
+
+</ContentPage>

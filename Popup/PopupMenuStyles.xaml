@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:lv="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                    xmlns:local="clr-namespace:PopupListView.Popup"
+                    x:Class="PopupListView.Popup.PopupMenuStyles">
+    
+    <x:Double x:Key="PopupItemFontSize">20</x:Double>
+    <Color x:Key="PopupItemForegroundColor">Black</Color>
+    <Color x:Key="PopupItemSeparatorColor">Gray</Color>
+
+    <Style TargetType="BoxView" x:Key="PopupItemSeparatorStyle">
+        <Setter Property="Margin"
+                Value="5,5,5,5"/>
+        <Setter Property="HeightRequest"
+                Value="2"/>
+        <Setter Property="Color"
+                Value="{StaticResource PopupItemSeparatorColor}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="PopupItemStyle"
+          x:DataType="local:PopupItem">
+        <Setter Property="FontSize"
+                Value="{StaticResource PopupItemFontSize}"/>
+        <Setter Property="TextColor"
+                Value="{StaticResource PopupItemForegroundColor}"/>
+        <Setter Property="BackgroundColor"
+                Value="Transparent"/>
+        <Setter Property="VerticalOptions"
+                Value="Fill"/>
+        <Setter Property="HorizontalOptions"
+                Value="Fill"/>
+        <Setter Property="HorizontalTextAlignment"
+                Value="Start"/>
+        <Setter Property="VerticalTextAlignment"
+                Value="Center"/>
+        <Setter Property="LineBreakMode"
+                Value="NoWrap"/>
+    </Style>
+
+    <DataTemplate x:Key="PopupItemTextTemplate"
+                  x:DataType="local:PopupItem">
+        <ViewCell>
+            <Label Style="{StaticResource PopupItemStyle}"
+                   Text="{Binding Text}"/>
+        </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PopupItemDescriptionTemplate"
+                  x:DataType="local:PopupItem">
+        <ViewCell>
+            <VerticalStackLayout Spacing="5">
+                <Label Style="{StaticResource PopupItemStyle}"
+                       Text="{Binding Text}"/>
+                <Label Style="{StaticResource PopupItemStyle}"
+                       Text="{Binding Description}"
+                       FontAttributes="Italic"
+                       FontSize="16"
+                       Padding="10,0,0,0"/>
+            </VerticalStackLayout>
+        </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PopupItemSeparatorTemplate"
+                  x:DataType="local:PopupItem">
+        <ViewCell>
+            <BoxView Style="{StaticResource PopupItemSeparatorStyle}"/>
+        </ViewCell>
+    </DataTemplate>
+
+    <local:PopupItemTemplateSelector x:Key="PopupItemTemplateSelector"
+                                     Text="{StaticResource PopupItemTextTemplate}"
+                                     Description="{StaticResource PopupItemDescriptionTemplate}"
+                                     Separator="{StaticResource PopupItemSeparatorTemplate}"/>
+
+    <DataTemplate x:Key="PopupContentTemplate" x:DataType="local:PopupMenuContext">
+        <local:PopupListView ItemsSource="{Binding Items}"
+                             ItemTemplate="{StaticResource PopupItemTemplateSelector}"
+                             SelectionMode="SingleDeselect"
+                             SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                             BackgroundColor="WhiteSmoke"
+                             SelectionBackground="CornflowerBlue"
+                             AutoFitMode="Height"
+                             ItemSpacing="0"
+                             />
+    </DataTemplate>
+</ResourceDictionary>
