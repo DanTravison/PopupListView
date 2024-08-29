@@ -57,5 +57,5 @@ measure the list view items to set MaxDropDownHeight even though IsAutoFit was s
 I would like to avoid that cost here as well.
 
 Here are ComboxBox issue:
-[Layout regression in SfComboBox when using an ItemTemplate with variable-sized items](https://support.syncfusion.com/support/tickets/616587)
-[MaxDropDownHeight is expensive to calculate](https://support.syncfusion.com/support/tickets/617849)
+- [Layout regression in SfComboBox when using an ItemTemplate with variable-sized items](https://support.syncfusion.com/support/tickets/616587)
+- [MaxDropDownHeight is expensive to calculate](https://support.syncfusion.com/support/tickets/617849)
